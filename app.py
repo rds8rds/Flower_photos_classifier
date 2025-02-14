@@ -5,7 +5,7 @@ import streamlit as st
 import tensorflow as tf
 import numpy as np
 
-st.header('Flower Classification CNN Model')
+st.header('🌻 Flower Classification CNN Model')
 flower_names = ['daisy', 'dandelion', 'rose', 'sunflower', 'tulip']
 
 model = load_model('Flower_Recog_Model.h5')
@@ -20,7 +20,7 @@ def classify_images(image_path):
     outcome = 'The Image belongs to ' + flower_names[np.argmax(result)] + ' with a score of '+ str(np.max(result)*100)
     return outcome
 
-uploaded_file = st.file_uploader('Upload an Image')
+uploaded_file = st.file_uploader('Upload an Image of a Flower of Daisy, Dandelion, Rose, Sunflower or Tulip for Classification')
 if uploaded_file is not None:
     with open(os.path.join('upload', uploaded_file.name), 'wb') as f:
         f.write(uploaded_file.getbuffer())
